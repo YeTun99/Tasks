@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+    
+          <record id="view_purchase_order_quotation_view_search" model="ir.ui.view">
+            <field name="name">purchase.order.quotation.view.search</field>
+            <field name="model">purcahase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="filter[@name='sales']" position="after">
+                    <separator/>
+                    <filter string="Today" name="filter_today" domain="[('create_date','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59))), ('create_date','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                    <separator/>
+                    <filter string="Yesterday" name="filter_yesterday" domain="[('create_date','&lt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23,59,59))), ('create_date','&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(0,0,0)))]"/>
+                </xpath>
+
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>
