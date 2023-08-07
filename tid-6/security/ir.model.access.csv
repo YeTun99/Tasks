@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tid-6_tid-6,tid-6.tid-6,model_customer_form,base.group_user,1,1,1,1
