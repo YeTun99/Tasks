@@ -1,0 +1,38 @@
+<odoo>
+    <record id="mail_product_quantity" model="mail.template">
+        <field name="name">Product On Hand Quantity</field>
+        <field name="model_id" ref="model_product_product"/>
+        <field name="email_from">{{ctx['product']['email_from']}}</field>
+        <field name="email_to">{{ctx['product']['email_to']}}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <t t-set="product" t-value="ctx.get('product')"/>
+                <t t-set="quantity" t-value="ctx.get('quantity',[])"/>
+           
+            <table>
+                <thead>
+                    <tr style="background-color:rgb(233,232,233);">
+                        <th style="width: 100%; min-width: 96px; font-size: 13px;">
+                            <strong>Product</strong>
+                        </th>
+                        <th style="width: 100%; min-width: 96px; font-size: 13px;" align="center">
+                            <strong>Qty</strong>
+                        </th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="quantity" t-as="line">
+                        <td style="width 100%; font-size: 13px;" valign="top" t-out="line['product'] or ''">Sushi salmon</td>
+                        <td style="width 100%; font-size: 13px;" valign="top" align="center" t-out="line['quantity'] or ''">10</td>
+                      
+                    </tr>
+                        
+                 
+                </tbody>
+            </table>
+            </div>
+        </field>
+
+    </record>
+</odoo>

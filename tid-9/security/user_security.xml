@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="module_sugar_cane_category">
+            <field name="name">Sugar Cane Department</field>
+            <field name="description">Group Description.</field>
+            <field name="sequence">10</field>
+        </record>
+        <!-- User Group For Course -->
+        <record id="sugar_cane_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="tid-9.module_sugar_cane_category"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+       
+
+        <!-- Supervisor Group For Courese -->
+        <record id="sugar_cane_supervisor" model="res.groups">
+            <field name="name">Supervisor</field>
+            <field name="category_id" ref="tid-9.module_sugar_cane_category"/>
+            <field name="implied_ids" eval="[(4,ref('sugar_cane_user'))]"/>
+            
+        </record>
+
+
+    </data>
+</odoo>
