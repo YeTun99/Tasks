@@ -3,7 +3,7 @@
         <record id='seq_edited_id' model='ir.sequence'>
             <field name='name'>Edited Version</field>
             <field name='code'>edited_version</field>
-        <field name='prefix'>R-</field>
+        <field name='prefix'>Edited Version-</field>
         </record>
     </data>
 </odoo>
